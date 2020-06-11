@@ -40,5 +40,10 @@ class Detector:
         cv2.imshow('Detection output for: ' + str(self.fileName), self.img)
         cv2.waitKey()
 
-    def SaveResult(self, file):
-        cv2.imwrite(file, self.img)
+    def SaveResult(self, path):
+        if (len(path) != 0):
+            cv2.imwrite(path, self.img)
+        else:
+            oldFileName = str(self.fileName).split('.')
+            newFileName = oldFileName[0] + '_output.' + oldFileName[1]
+            cv2.imwrite(newFileName, self.img)
