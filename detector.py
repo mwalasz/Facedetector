@@ -9,9 +9,7 @@ class Detector:
     gray_img = ''
     face_haar_classifiers = 0
     faces = 0
-    r = 255
-    g = 0
-    b = 0
+    color = (0, 0, 255)
 
     def __init__(self):
         self.face_haar_classifiers = cv2.CascadeClassifier(
@@ -27,13 +25,23 @@ class Detector:
     def MarkDetectedFaces(self):
         for (x, y, w, h) in self.faces:
             cv2.rectangle(self.img, (x, y), (x + w, y + h),
-                          (self.b, self.g, self.r), 3)
+                          self.color, 3)
+
+    def DrawNumberOfFaces(self):
+        height, width, channels = self.img.shape
+        cv2.putText(self.img, "Detected: " + str(self.detectedFaces),
+                    (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    1,
+                    self.color,
+                    2)
 
     def DetectFaces(self):
         self.ConvertImgToGray()
         self.faces = self.face_haar_classifiers.detectMultiScale(
             self.gray_img, 1.3, 5)
         self.detectedFaces = len(self.faces)
+        self.DrawNumberOfFaces()
         self.MarkDetectedFaces()
 
     def DisplayResult(self):
