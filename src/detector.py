@@ -4,7 +4,7 @@ import numpy as np
 
 class Detector:
     numberOfDetectedFaces = 0
-    #numberOfDetectedFaces = 0
+    numberOfDetectedEyes = 0
     fileName = ''
     img = ''
     grayImg = ''
@@ -29,7 +29,10 @@ class Detector:
 
     def DrawResults(self):
         self.DrawNumberOfFaces()
-        self.DrawDetectedEyes()
+
+        if (self.numberOfDetectedFaces * 2) == self.numberOfDetectedEyes:
+            self.DrawDetectedEyes()
+
         self.DrawDetectedFaces()
 
     def LoadImage(self, file):
@@ -71,6 +74,7 @@ class Detector:
             self.picturesOfFaces.append(self.img[y:y+h, x:x+w])
             self.eyesCoords = self.eyeClassifier.detectMultiScale(
                 grayFace)
+            self.numberOfDetectedEyes += len(self.eyesCoords)
 
     def DisplayResultPhoto(self):
         cv2.imshow('Detection output for: ' + str(self.fileName), self.img)
