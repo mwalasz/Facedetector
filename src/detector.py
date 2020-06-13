@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import constans as const
 
 
 class Detector:
@@ -17,9 +18,9 @@ class Detector:
 
     def __init__(self):
         self.faceClassifier = cv2.CascadeClassifier(
-            'resources\classifiers\haarcascade_frontalface_default.xml')
+            const.haarFacesClassifier)
         self.eyeClassifier = cv2.CascadeClassifier(
-            'resources\classifiers\haarcascade_eye.xml')
+            const.haarEyesClassifier)
 
     def Run(self):
         self.DetectFaces()
@@ -55,7 +56,7 @@ class Detector:
 
     def DrawNumberOfFaces(self):
         height, width, channels = self.img.shape
-        cv2.putText(self.img, "Detected: " + str(self.numberOfDetectedFaces),
+        cv2.putText(self.img, const.detectionInfo + str(self.numberOfDetectedFaces),
                     (10, 30),
                     cv2.FONT_HERSHEY_SIMPLEX,
                     1,
@@ -77,7 +78,7 @@ class Detector:
             self.numberOfDetectedEyes += len(self.eyesCoords)
 
     def DisplayResultPhoto(self):
-        cv2.imshow('Detection output for: ' + str(self.fileName), self.img)
+        cv2.imshow(const.windowDescription + str(self.fileName), self.img)
         cv2.waitKey()
 
     def SaveResult(self, path):
