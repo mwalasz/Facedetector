@@ -1,4 +1,5 @@
 import os
+import constans as const
 
 
 class Validator:
@@ -11,17 +12,17 @@ class Validator:
             if self.CheckIfCorrectInputFile(args[1]):
                 self.CreateOutputFilePath()
         elif len(args) != 2:
-            print("Wrong number of parameters!")
+            print(const.wrongParameters)
             os._exit(-1)
 
     def CheckIfCorrectInputFile(self, filePath):
-        if ".jpg" in filePath or "png" in filePath:
+        if const.img in filePath or const.png in filePath:
             self.inputFilePath = filePath
             self.inputFileName = os.path.basename(filePath)
             return True
         else:
-            print("Wrong input file!")
+            print(const.wrongFile)
             os._exit(-1)
 
     def CreateOutputFilePath(self):
-        self.outputFilePath = 'resources\output_img\\' + self.inputFileName
+        self.outputFilePath = const.outputDirectory + self.inputFileName
