@@ -5,6 +5,7 @@ wrongParameters = "Wrong number of parameters! To run program type: app.py \"ima
 # information strings
 windowDescription = "Detection output for: "
 detectionInfo = "Detected: "
+mergedImageTitle = " detected faces:"
 
 # paths
 outputDirectory = "resources\output_img\\"

@@ -79,6 +79,7 @@ class Detector:
 
     def DisplayResultPhoto(self):
         cv2.imshow(const.windowDescription + str(self.fileName), self.img)
+      
        if self.numberOfDetectedFaces == 1:
             cv2.waitKey()
 

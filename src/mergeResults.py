@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 from PIL import Image
 import concat_images as con
+import constans as const
 
 
 class MergeResults:
@@ -17,7 +18,6 @@ class MergeResults:
         if length != 0:
             self.numberOfImages = length
             self.images = img
-            print(length)
 
   def Merge(self):
         temp = [[]]  # 2d array with faces
@@ -45,7 +45,6 @@ class MergeResults:
     def Show(self):
         if (self.numberOfImages > 1):
             cv2.imshow(str(self.numberOfImages) +
-                       " detected faces:", self.mergedImages)
+                        const.mergedImageTitle, self.mergedImages)
             cv2.waitKey()
             cv2.destroyAllWindows()
-            
