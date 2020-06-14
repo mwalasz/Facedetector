@@ -1,5 +1,6 @@
 from detector import Detector
 from validator import Validator
+from mergeResults import MergeResults
 import sys
 import os
 
@@ -9,4 +10,7 @@ d = Detector()
 d.LoadImage(v.inputFilePath)
 d.Run()
 d.DisplayResultPhoto()
-d.SaveResult(v.outputFilePath)
+
+m = MergeResults(d.picturesOfFaces)
+
+# d.SaveResult(v.outputFilePath)
