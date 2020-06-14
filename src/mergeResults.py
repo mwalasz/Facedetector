@@ -9,6 +9,7 @@ class MergeResults:
     numberOfImages = 0
     imgPerRow = 2
     columns = 5
+    mergedImages = 0
 
     def __init__(self, img):
         length = len(img)
@@ -18,7 +19,7 @@ class MergeResults:
             self.images = img
             print(length)
 
-def Show(self):
+  def Merge(self):
         temp = [[]]  # 2d array with faces
 
         row = int(self.numberOfImages / self.columns)
@@ -40,8 +41,11 @@ def Show(self):
                     if self.columns * i < self.numberOfImages:
                         temp.append([])
 
-        mergedImage = con.concat_tile_resize(temp)
-
-        cv2.imshow(str(self.numberOfImages) +
-                   " detected faces:", mergedImage)
-        cv2.waitKeface()
+        self.mergedImages = con.concat_tile_resize(temp)
+    def Show(self):
+        if (self.numberOfImages > 1):
+            cv2.imshow(str(self.numberOfImages) +
+                       " detected faces:", self.mergedImages)
+            cv2.waitKey()
+            cv2.destroyAllWindows()
+            

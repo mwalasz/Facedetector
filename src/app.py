@@ -12,5 +12,6 @@ d.Run()
 d.DisplayResultPhoto()
 
 m = MergeResults(d.picturesOfFaces)
+m.Merge()
 m.Show()
 # d.SaveResult(v.outputFilePath)
