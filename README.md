@@ -1,12 +1,12 @@
 # Facedetector ![GitHub top language](https://img.shields.io/github/languages/top/mwalasz/Facedetector) ![GitHub contributors](https://img.shields.io/github/contributors/mwalasz/Facedetector)  ![GitHub last commit](https://img.shields.io/github/last-commit/mwalasz/Facedetector) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/mwalasz/Facedetector) ![GitHub search hit counter](https://img.shields.io/github/search/mwalasz/Facedetector/facedetector)
 
-<img src="./resources/logo.png" align="left" width=100 heigt=150 alt="Android app icon" hspace=30 vspace=10>
+<img src="./resources/logo.png" align="left" width=100 heigt=200 alt="Android app icon" hspace=30 vspace=10>
 
 Facedetector is Python script made using OpenCV library, \
 which detects faces and eyes on provided pictures in .jpg and .png format. \
 Script marks detected faces right on the provided picture and also tries to mark detected eyes, \
 only in case of detection all of eyes (in association with number of detected faces). \
-Another feature is making mosaic with detected faces in case of detection more than one face on picture.
+Another feature is making mosaic with detected faces in case of detection more than one face on the picture.
 
 ## Prerequisites
 
