@@ -2,7 +2,6 @@ from detector import Detector
 from validator import Validator
 from mergeResults import MergeResults
 import sys
-import os
 
 v = Validator(sys.argv)
 d = Detector()
